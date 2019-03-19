@@ -4,7 +4,7 @@ The goal of these exercices is to test on the same problem, 1- a "classical" mac
 
 ## Set up of environment
 - Go [here](https://github.com/ramp-kits/astrophd_tutorial) and follow steps 1 and 2
-- Start your virtual environment: source activate 
+- Start your virtual environment: source activate dl4astro19
 - Go to folder cd deeplearning4astro_labs_2019/morphology
 - You might need to install Pillow the first time you activate the environment: conda install -c intel pillow
 - Start a jupyter notebook: jupyter notebook&
