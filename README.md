@@ -1,6 +1,8 @@
-# Deep learning tutorial for Astro PhDs
+# Tutorial Sessions - Intelligence artificielle pour l'astrophysique à l'époque du big-data - ED127
 
 _Authors: Alexandre Boucaud & Marc Huertas-Company_
+
+These pages contain all the required information to run the tutorials. Please follow the instructions below to set up ypur environment.
 
 ### Set up your environment
 
@@ -22,10 +24,5 @@ _Authors: Alexandre Boucaud & Marc Huertas-Company_
   python -m pip install -r requirements.txt
   ```
 
-3. download the data
-  ```
-  python download_data.py        # quick-test data for testing ~16Mo
-  python download_data.py full   # full dataset ~1.5Go
-  ```
 
 
