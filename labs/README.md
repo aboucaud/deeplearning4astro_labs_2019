@@ -1,3 +1,3 @@
-This folder contains the necessary data for practice days 1 and 2.
-- The shallow folder refers to "classical" machine learning (Monday)
-- The deep folder refers to deep learning (Tuesday)
+This folder contains all required material for the tuotrial sessions.
+- The morphology fodler will be used for Monday and Tuesday Sessions
+- The deblending folder will be used for Wednesday to Friday sessions
