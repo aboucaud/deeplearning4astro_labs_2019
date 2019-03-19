@@ -3,7 +3,7 @@
 The goal of these exercices is to test on the same problem, 1- a "classical" machine learning approach and a 2 - a deep learning approach (CNNs) to separate SDSS galaxies between ellitpicals (early-type) and spirals (late-type). You can also try more detailed morphologies to see the difference.
 
 ## Set up of environment
-- Go [here](https://github.com/ramp-kits/astrophd_tutorial) and follow steps 1 and 2
+- If not done yet, go [here](https://github.com/aboucaud/deeplearning4astro_labs_2019) and follow steps 1 and 2 (+3 if you have a GPU)
 - Start your virtual environment: source activate dl4astro19
 - Go to folder cd deeplearning4astro_labs_2019/morphology
 - You might need to install Pillow the first time you activate the environment: conda install -c intel pillow
