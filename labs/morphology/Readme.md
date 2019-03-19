@@ -4,11 +4,11 @@ The goal of these exercices is to test on the same problem, 1- a "classical" mac
 
 ## Set up of environment
 - Go [here](https://github.com/ramp-kits/astrophd_tutorial) and follow steps 1 and 2
-- Activate virtual environment by typing in the command line: source activate astrophd_tutorial
+- Start your virtual environment: source activate 
+- Go to folder cd deeplearning4astro_labs_2019/morphology
 - You might need to install Pillow the first time you activate the environment: conda install -c intel pillow
 - Start a jupyter notebook: jupyter notebook&
-- Clone the repository into your local machine: git clone https://github.com/mhuertascompany/IAC_XXX_WINTER
-- Go to folder cd IAC_XXX_WINTER/morphology
+
 
 ## Data provided
 - The training set is made of the detailed visual classifications of [Nair&Abraham2010](http://adsabs.harvard.edu/abs/2010ApJS..186..427N) of ~14.000 SDSS galaxies. 
