@@ -1,0 +1,17 @@
+name: dl4astro19
+channels:
+  - conda-forge\
+  - pytorch
+dependencies:
+  - scipy
+  - numpy
+  - pandas
+  - jupyter
+  - astropy
+  - matplotlib
+  - scikit-learn>=0.19
+  - h5py
+  - keras>=2.*
+  - tensorflow
+  - pytorch
+  - torchvision
