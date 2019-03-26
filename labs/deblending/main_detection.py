@@ -27,7 +27,7 @@ def main(filename, mini=False):
     custom_lib = import_module(module)
     model = custom_lib.model()
 
-    obj = ObjectDetector(model)
+    obj = ObjectDetector(model, batch_size=16, epoch=100, model_check_point=False)
 
     print("Training...")
     obj.fit(X_train, Y_train)
