@@ -49,7 +49,7 @@ def main(output_dir, delete=False, full=False):
         print(f"Creating directory {output_dir}")
         os.mkdir(output_dir)
 
-    for url, filename in zip(urls, FILES):
+    for url, filename in zip(urls, files):
         output_file = os.path.join(output_dir, filename)
 
         if os.path.exists(output_file):
