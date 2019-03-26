@@ -6,16 +6,20 @@ import numpy as np
 from dltools.detector import ObjectDetector
 
 
-def main(filename):
-    X_train = np.load("./data/train_blends_mini.npy")
-    Y_train = np.load("./data/train_target_masks_mini.npy")
+def main(filename, mini=False):
+    datadir = "data"
+    suffix = "_mini" if mini else ""
 
-    X_test = np.load("./data/train_blends_mini.npy")
-    Y_test = np.load("./data/train_target_masks_mini.npy")
+    X_train = np.load(os.path.join(datadir, f"train_blends{suffix}.npy"))
+    Y_train = np.load(os.path.join(datadir, f"train_target_masks{suffix}.npy"))
+
+    X_test = np.load(os.path.join(datadir, f"test_blends{suffix}.npy"))
+    Y_test = np.load(os.path.join(datadir, f"test_target_masks{suffix}.npy"))
 
     module = os.path.splitext(filename)[0]
 
     binome, submission = module.split('_')
+    
     print("\n\n\n")
     print(f"Training submission {submission} by {binome}...")
     print("\n\n\n")
@@ -44,4 +48,4 @@ def main(filename):
 if __name__ == "__main__":
     import sys
     filename = sys.argv[1]
-    main(filename)
+    main(filename, mini=True)
