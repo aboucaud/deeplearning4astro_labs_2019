@@ -19,9 +19,12 @@ except ImportError:
 URL = "https://www.apc.univ-paris7.fr/Downloads/comput/aboucaud"
 FOLDER = "ed127"
 FILES = [
-    "masks.tar.gz",
-    "single_imgs.tar.gz",
-    "blends.tar.gz",
+    "test_blends_mini.npy",
+    "test_target_img_mini.npy",
+    "test_target_masks_mini.npy",
+    "train_blends_mini.npy",
+    "train_target_img_mini.npy",
+    "train_target_masks_mini.npy",
 ]
 BIG_FILES = [
     "masks.tar.gz",
