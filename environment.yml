@@ -1,6 +1,6 @@
 name: dl4astro19
 channels:
-  - conda-forge\
+  - conda-forge
   - pytorch
 dependencies:
   - scipy
