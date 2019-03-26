@@ -23,9 +23,17 @@ FILES = [
     "single_imgs.tar.gz",
     "blends.tar.gz",
 ]
+BIG_FILES = [
+    "masks.tar.gz",
+    "single_imgs.tar.gz",
+    "blends.tar.gz",
+]
 
 
-def main(output_dir, delete):
+def main(output_dir, delete=False, full=False):
+    if full:
+        FILES = BIG_FILES
+
     urls = [
         f"{URL}/{FOLDER}/{filename}"
         for filename in FILES
@@ -58,4 +66,9 @@ def main(output_dir, delete):
 
 
 if __name__ == '__main__':
-    main(output_dir='data', delete=True)
+    import sys
+    try:
+        full = sys.argv[1].lower() == 'full'
+    else:
+        full = False
+    main(output_dir='data', delete=True, full=full)
