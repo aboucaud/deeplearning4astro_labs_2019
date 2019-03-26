@@ -25,6 +25,7 @@ FILES = [
     "train_blends_mini.npy",
     "train_target_img_mini.npy",
     "train_target_masks_mini.npy",
+
 ]
 BIG_FILES = [
     "masks.tar.gz",
@@ -35,11 +36,13 @@ BIG_FILES = [
 
 def main(output_dir, delete=False, full=False):
     if full:
-        FILES = BIG_FILES
+        files = BIG_FILES
+    else:
+        files = FILES
 
     urls = [
         f"{URL}/{FOLDER}/{filename}"
-        for filename in FILES
+        for filename in files
     ]
 
     if not os.path.exists(output_dir):
@@ -72,6 +75,6 @@ if __name__ == '__main__':
     import sys
     try:
         full = sys.argv[1].lower() == 'full'
-    else:
+    except:
         full = False
     main(output_dir='data', delete=True, full=full)
