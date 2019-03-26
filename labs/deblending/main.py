@@ -15,10 +15,10 @@ def main(filename):
 
     module = os.path.splitext(filename)[0]
 
-    name, submission = module.split('_')
-    print(f"\n\n\n")
-    print(f"Training submission {submission} by {name}...")
-    print(f"\n\n\n")
+    binome, submission = module.split('_')
+    print("\n\n\n")
+    print(f"Training submission {submission} by {binome}...")
+    print("\n\n\n")
 
     custom_lib = import_module(module)
     model = custom_lib.model()
@@ -29,8 +29,16 @@ def main(filename):
     obj.fit(X_train, Y_train)
 
     print("Testing...")
-    s = obj.predict_score(X_test.squeeze(), Y_test)
-    print("Score: ", s)
+    score = obj.predict_score(X_test.squeeze(), Y_test)
+    print(f"Score: {score:.2f}")
+
+    if not os.path.exists('results.txt'):
+        with open('results.txt', 'w') as f:
+            print(f"binome    \tsubmission\tscore", file=f)
+            print(f"------    \t----------\t-----", file=f)
+
+    with open('results.txt', 'a') as f:
+        print(f"{binome}\t{submission}\t{score:.3f}".format(binome, submission, score), file=f)
     
 
 if __name__ == "__main__":
