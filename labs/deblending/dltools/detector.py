@@ -2,6 +2,7 @@ import os
 from math import ceil
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 from sklearn.utils import Bunch
 
@@ -57,13 +58,15 @@ class ObjectDetector(object):
         callbacks = self._build_callbacks()
 
         # fit the model
-        self.model_.fit_generator(
+        history = self.model_.fit_generator(
             generator=train_generator,
             steps_per_epoch=ceil(n_train_samples / self.batch_size),
             epochs=self.epoch,
             callbacks=callbacks,
             validation_data=val_generator,
             validation_steps=ceil(n_val_samples / self.batch_size))
+
+        return history
 
     def predict(self, X):
         Y_p = self.model_.predict(np.expand_dims(X, -1))
@@ -73,6 +76,47 @@ class ObjectDetector(object):
         Y_p = self.model_.predict(np.expand_dims(X, -1))
         s = iou(Y_p.squeeze(),Y.squeeze())
         return s
+    
+    def plot_random_results(self, X_test, y_test, filename):
+        n_gal = 5
+        idx = np.random.randint(0, len(y_test), size=n_gal)
+        X = X_test[idx]
+        if X.ndim == 3:
+            X = np.expand_dims(X, -1)
+        y_true = y_test[idx]
+        y_pred = self.model_.predict(X)
+
+        titles = [
+            'blend',
+            'true segmentation',
+            'output',
+            'output thresholded',
+        ]
+        fig_size = (10, 12)
+        fig, ax = plt.subplots(nrows=n_gal, ncols=4, figsize=fig_size)
+        for i in range(n_gal):
+            img = np.squeeze(X[i])
+            yt = np.squeeze(y_true[i])
+            yp = np.squeeze(y_pred[i])
+            ax[i, 0].imshow(img)
+            ax[i, 1].imshow(yt)
+            ax[i, 2].imshow(yp)
+            ax[i, 3].imshow(yp.round())
+            if i == 0:
+                for idx, a in enumerate(ax[i]):
+                    a.set_title(titles[idx])
+            for a in ax[i]:
+                a.set_axis_off()
+        plt.savefig('{filename}'.format(filename=filename))
+
+    @staticmethod
+    def plot_history(history, filename):
+        plt.semilogy(history.epoch, history.history['loss'], label='loss')
+        plt.semilogy(history.epoch, history.history['val_loss'], label='val_loss')
+        plt.title('Training performance')
+        plt.legend()
+        plt.savefig("{filename}".format(filename=filename))
+
     
     ###########################################################################
     # Setup model
