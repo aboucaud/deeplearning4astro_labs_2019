@@ -14,7 +14,7 @@ cd labs/deblending
 pip install .
 ```
 
-3. Download the data 
+3. Download the data (for testing in your laptopt, you do not need to download the full dataset)
 ```
 python download_data.py        # "mini" dataset for testing ~ 60 Mo
 python download_data.py full   # full dataset ~ 4 Go
@@ -22,7 +22,9 @@ python download_data.py full   # full dataset ~ 4 Go
 
 Instructions
 ------------
-You will create deep learning models to perform a deblending task, starting first with a detection task and followed by a more complex image regression task.
+The goal of this titorial is create deep learning models to perform a deblending task (i.e. segment 2 overalpping galaxies in an image), starting first with a detection task and followed by a more complex image regression task.
+
+Sine the computation task is large without GPUs, 
 
 Each model you create should be placed in a `.py` file whose name **HAS TO** follow the rule `nameofthebinome_submissionname.py`, with a **SINGLE** underscore to separate both names and no other specific character.
 
