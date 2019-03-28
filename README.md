@@ -2,7 +2,7 @@
 
 _Authors: Alexandre Boucaud & Marc Huertas-Company_
 
-These pages contain all the required information to run the tutorials. Please follow the instructions below to set up ypur environment.
+These pages contain all the required information to run the tutorials of the [course](https://github.com/mhuertascompany/deeplearning4astronomy). Please follow the instructions below to set up ypur environment.
 
 ### Set up your environment
 
