@@ -10,11 +10,11 @@ def main(filename, mini=False):
     datadir = "data"
     suffix = "_mini" if mini else ""
 
-    X_train = np.load(os.path.join(datadir, f"train_blends{suffix}.npy"))
-    Y_train = np.load(os.path.join(datadir, f"train_target_masks{suffix}.npy"))
+    X_train = np.load(os.path.join(datadir, f"train_blends{suffix}.npy"), mmap_mode='r')
+    Y_train = np.load(os.path.join(datadir, f"train_target_masks{suffix}.npy"), mmap_mode='r')
 
-    X_test = np.load(os.path.join(datadir, f"test_blends{suffix}.npy"))
-    Y_test = np.load(os.path.join(datadir, f"test_target_masks{suffix}.npy"))
+    X_test = np.load(os.path.join(datadir, f"test_blends{suffix}.npy"), mmap_mode='r')
+    Y_test = np.load(os.path.join(datadir, f"test_target_masks{suffix}.npy"), mmap_mode='r')
 
     modulename = os.path.splitext(filename)[0]
 
